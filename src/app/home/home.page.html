@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title class="ion-text-center">
+      Met Éireann App
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,11 +9,23 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large" class="ion-text-center">Met Éireann</ion-title>
     </ion-toolbar>
   </ion-header>
+  
+  <div>
+  <h1 class="ion-text-center">Weather Data</h1>
+  <ul>
+  <li>Location: Galway</li>
+  <li *ngFor="let y of myWeather">Forecast: {{y.main}}, {{y.description}}.</li>
+</ul>
+</div>
 
-  <div id="container">
- <h3>Welcome to Mobile Apps Starter project 2023</h3>
-  </div>
+<div>
+<ion-button shape="round" class="buttonclass" (click)="Info()">Info</ion-button>
+<ion-button shape="round" class="buttonclass" (click)="History()">History</ion-button>
+<ion-button shape="round" class="buttonclass" (click)="ContactUs()">Contact Us</ion-button>
+<ion-button expands="block" class="ion-margin" (click)="Website()">Open Browser</ion-button>
+</div>
+
 </ion-content>
