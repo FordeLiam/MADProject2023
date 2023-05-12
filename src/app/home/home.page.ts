@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { WeatherService } from '../weather.service'; //Import the newly created weather service.
-import { Browser } from '@capacitor/browser' // import Browser from Capacitor Browser plugin
+import { WeatherService } from '../weather.service'; //Import for api
+import { Browser } from '@capacitor/browser' //Import for Browser plugin
 
 @Component({
   selector: 'app-home',
@@ -16,24 +16,32 @@ export class HomePage {
       await Browser.open({ url: 'https://www.met.ie/' });
     }
   
-  ngOnInit(): void { //This method will be ran when this component is activated.
+  ngOnInit(): void {
 
-      //Also get Weather Data
+    //api:
     this.weatherServ.WeatherReport().subscribe(
       (data)=>{
         this.myWeather = data.weather;
       }
     );
   }
+ 
+  //info page
   Info() {
     this.navCtrl.navigateForward('/info');
   }
+ 
+  //history page
   History() {
     this.navCtrl.navigateForward('/history');
   }
+  
+  //contact us page
   ContactUs() {
     this.navCtrl.navigateForward('/contactus');
   }
+  
+  //browser plugin
   Website(){
       this.openBrowser();
   }
